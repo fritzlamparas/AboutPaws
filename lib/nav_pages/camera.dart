@@ -1,5 +1,9 @@
-// ignore_for_file: prefer_is_empty, camel_case_types
-import 'package:aboutpaws/widgets/plant.dart';
+// ignore_for_file: prefer_is_empty, camel_case_types, unused_field
+//import 'package:aboutpaws/widgets/plantdiseasecard.dart';
+import 'package:aboutpaws/models/desc_display.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import 'package:aboutpaws/widgets/dogdisplay.dart';
 import 'package:flutter/material.dart';
 // Imports para sa Machine Learning Side
 import 'package:tflite/tflite.dart';
@@ -13,13 +17,46 @@ class cameraPage extends StatefulWidget {
 }
 
 class _CameraPageState extends State<cameraPage> {
+  List<Object> _plantdiseaseList = [];
   List<String> plants = [
-    "Bell Pepper",
-    "Cassava",
-    "Grape",
-    "Potato",
-    "Strawberry",
-    "Tomato",
+    "Airedale",
+    "Aspin",
+    "Beagle",
+    "Bearded Collie",
+    "Bloodhound",
+    "Boston Terrier",
+    "Boxer",
+    "Bull Mastiff",
+    "Bull Terrier",
+    "Bulldog",
+    "Chihuahua",
+    "Chow Chow",
+    "Cocker",
+    "Collie",
+    "Corgi",
+    "Dalmatian",
+    "Dobberman",
+    "Elk Hound",
+    "French Bulldog",
+    "German Shepherd",
+    "Golden Retriever",
+    "Great Dane",
+    "Greyhound",
+    "Irish Spaniel",
+    "Japanese Spaniel",
+    "Labrador",
+    "Malinois",
+    "Pekinese",
+    "Pit Bull",
+    "Poodle",
+    "Pug",
+    "Rottweiler",
+    "Saint Bernard",
+    "Scotch Terrier",
+    "Shiba Inu",
+    "Shih Tzu",
+    "Siberian Husky",
+    "Yorkie"
   ];
   String getPlantName() {
     String currentplant = "";
@@ -70,7 +107,7 @@ class _CameraPageState extends State<cameraPage> {
 
   loadModel() async {
     await Tflite.loadModel(
-        model: 'assets/picleaf_model_fp16.tflite',
+        model: 'assets/aboutpaws_model_fp16.tflite',
         labels: 'assets/labels.txt',
         numThreads: 1);
   }
@@ -92,6 +129,8 @@ class _CameraPageState extends State<cameraPage> {
     });
 
     detectImage(_image);
+    getPlantName();
+    getPlantDiseaseList();
   }
 
   pickGalleryImage() async {
@@ -103,22 +142,17 @@ class _CameraPageState extends State<cameraPage> {
     });
 
     detectImage(_image);
+    getPlantName();
+    getPlantDiseaseList();
   }
 
   String? value;
-  final items = [
-    "Bell Pepper",
-    "Cassava",
-    "Grape",
-    "Potato",
-    "Strawberry",
-    "Tomato",
-  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // AppBar para sa taas na design
+
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
@@ -135,7 +169,7 @@ class _CameraPageState extends State<cameraPage> {
           child: Column(
         children: <Widget>[
           const SizedBox(
-            height: 112,
+            height: 100,
           ),
           Center(
             child: loading
@@ -167,7 +201,7 @@ class _CameraPageState extends State<cameraPage> {
                                   style: const TextStyle(
                                       decorationColor:
                                           Color.fromRGBO(59, 59, 59, 1),
-                                      fontSize: 18,
+                                      fontSize: 20,
                                       fontFamily: 'NunitoMedium',
                                       color: Color.fromRGBO(1, 3, 41, 1.0),
                                       height: 1.5),
@@ -177,35 +211,41 @@ class _CameraPageState extends State<cameraPage> {
                                 SizedBox(
                                     child: Center(
                                   child: TextButton(
-                                      onPressed: () {
-                                        Navigator.of(context).push(
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    SecondPage(
-                                                        plantname:
-                                                            getPlantName())));
-                                      },
-                                      child: const Text(
-                                        "More Info",
-                                        style: TextStyle(
-                                          fontSize: 25,
-                                          fontFamily: 'NunitoMedium',
-                                          shadows: [
-                                            Shadow(
-                                                color: Color.fromRGBO(
-                                                    1, 3, 41, 1.0),
-                                                offset: Offset(0, -5))
-                                          ],
-                                          color: Colors.transparent,
-                                          decoration: TextDecoration.underline,
-                                          decorationColor:
-                                              Color.fromRGBO(1, 3, 41, 1.0),
-                                          decorationThickness: 4,
-                                          decorationStyle:
-                                              TextDecorationStyle.solid,
-                                        ),
-                                      )),
+                                    onPressed: () {
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) => SecondPage(
+                                                  plantname: getPlantName(),
+                                                  dimage: _image)));
+                                    },
+                                    child: const Text(
+                                      "Facts About Them",
+                                      style: TextStyle(
+                                        fontSize: 25,
+                                        fontFamily: 'NunitoMedium',
+                                        color: Color.fromRGBO(1, 3, 41, 1.0),
+                                        decoration: TextDecoration.underline,
+                                      ),
+                                    ),
+                                  ),
                                 )),
+                                /* Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                        child: SizedBox(
+                                      height: 200.0,
+                                      width: 200.0,
+                                      child: ListView.builder(
+                                        itemCount: _plantdiseaseList.length,
+                                        itemBuilder: (context, index) {
+                                          return PlantCard(_plantdiseaseList[0]
+                                              as PlantDisplay);
+                                        },
+                                        padding: const EdgeInsets.only(top: 10),
+                                      ),
+                                    )),
+                                  ],
+                                )*/
                               ],
                             )
                           : Container(),
@@ -309,5 +349,14 @@ class _CameraPageState extends State<cameraPage> {
         ],
       )),
     );
+  }
+
+  void getPlantDiseaseList() async {
+    var data =
+        await FirebaseFirestore.instance.collection(getPlantName()).get();
+    setState(() {
+      _plantdiseaseList =
+          List.from(data.docs.map((doc) => PlantDisplay.fromSnapshot(doc)));
+    });
   }
 }

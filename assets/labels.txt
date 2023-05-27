@@ -1,24 +1,38 @@
-Bell Pepper Leaf with Bacterial Spot
-Cassava Leaf with Bacterial Blight
-assava Leaf with Brown Streak Disease
-Cassava Leaf with Green Mottle
-Cassava Leaf with Mosaic Disease
-Grape Leaf with Black Measles
-Grape Leaf with Black Rot
-Grape Leaf with Blight
-Healthy Bell Pepper Leaf
-Healthy Cassava Leaf
-Healthy Grape Leaf
-Healthy Potato Leaf
-Healthy Strawberry Leaf
-Healthy Tomato Leaf
-Potato Leaf with Blight
-Strawberry Leaf with Leaf Scorch
-Tomato Leaf with Bacterial Spot
-Tomato Leaf with Blight
-Tomato Leaf with Leaf Mold
-Tomato Leaf with Mosaic Virus
-Tomato Leaf with Septoria Leaf Spot
-Tomato Leaf with Spider Mites
-Tomato Leaf with Target Spot
-Tomato Leaf with Yellow Leaf Curl Virus
+Airedale
+Aspin
+Beagle
+Bearded Collie
+Bloodhound
+Boston Terrier
+Boxer
+Bull Mastiff
+Bull Terrier
+Bulldog
+Chihuahua
+Chow Chow
+Cocker
+Collie
+Corgi
+Dalmatian
+Dobberman
+Elk Hound
+French Bulldog
+German Shepherd
+Golden Retriever
+Great Dane
+Greyhound
+Irish Spaniel
+Japanese Spaniel
+Labrador
+Malinois
+Pekinese
+Pit Bull
+Poodle
+Pug
+Rottweiler
+Saint Bernard
+Scotch Terrier
+Shiba Inu
+Shih Tzu
+Siberian Husky
+Yorkie
