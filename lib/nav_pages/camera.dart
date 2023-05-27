@@ -1,5 +1,4 @@
 // ignore_for_file: prefer_is_empty, camel_case_types, unused_field
-//import 'package:aboutpaws/widgets/plantdiseasecard.dart';
 import 'package:aboutpaws/models/desc_display.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -17,8 +16,8 @@ class cameraPage extends StatefulWidget {
 }
 
 class _CameraPageState extends State<cameraPage> {
-  List<Object> _plantdiseaseList = [];
-  List<String> plants = [
+  List<Object> _dogList = [];
+  List<String> dogs = [
     "Airedale",
     "Aspin",
     "Beagle",
@@ -58,18 +57,18 @@ class _CameraPageState extends State<cameraPage> {
     "Siberian Husky",
     "Yorkie"
   ];
-  String getPlantName() {
-    String currentplant = "";
+  String getDogName() {
+    String currentdog = "";
     String mainString = _output?.elementAt(0)['label'];
-    for (int i = 0; i < plants.length; i++) {
-      if (mainString.contains(plants[i])) {
-        currentplant = plants[i];
+    for (int i = 0; i < dogs.length; i++) {
+      if (mainString.contains(dogs[i])) {
+        currentdog = dogs[i];
         break;
       } else {
         continue;
       }
     }
-    return currentplant;
+    return currentdog;
   }
 
   bool loading = true;
@@ -129,8 +128,8 @@ class _CameraPageState extends State<cameraPage> {
     });
 
     detectImage(_image);
-    getPlantName();
-    getPlantDiseaseList();
+    getDogName();
+    getDogList();
   }
 
   pickGalleryImage() async {
@@ -142,8 +141,8 @@ class _CameraPageState extends State<cameraPage> {
     });
 
     detectImage(_image);
-    getPlantName();
-    getPlantDiseaseList();
+    getDogName();
+    getDogList();
   }
 
   String? value;
@@ -154,7 +153,7 @@ class _CameraPageState extends State<cameraPage> {
       // AppBar para sa taas na design
 
       appBar: AppBar(
-        centerTitle: true,
+        centerTitle: false,
         title: const Text(
           "AboutPaws",
           style: TextStyle(
@@ -215,7 +214,7 @@ class _CameraPageState extends State<cameraPage> {
                                       Navigator.of(context).push(
                                           MaterialPageRoute(
                                               builder: (context) => SecondPage(
-                                                  plantname: getPlantName(),
+                                                  dogname: getDogName(),
                                                   dimage: _image)));
                                     },
                                     child: const Text(
@@ -229,23 +228,6 @@ class _CameraPageState extends State<cameraPage> {
                                     ),
                                   ),
                                 )),
-                                /* Row(
-                                  children: <Widget>[
-                                    Expanded(
-                                        child: SizedBox(
-                                      height: 200.0,
-                                      width: 200.0,
-                                      child: ListView.builder(
-                                        itemCount: _plantdiseaseList.length,
-                                        itemBuilder: (context, index) {
-                                          return PlantCard(_plantdiseaseList[0]
-                                              as PlantDisplay);
-                                        },
-                                        padding: const EdgeInsets.only(top: 10),
-                                      ),
-                                    )),
-                                  ],
-                                )*/
                               ],
                             )
                           : Container(),
@@ -351,12 +333,11 @@ class _CameraPageState extends State<cameraPage> {
     );
   }
 
-  void getPlantDiseaseList() async {
-    var data =
-        await FirebaseFirestore.instance.collection(getPlantName()).get();
+  void getDogList() async {
+    var data = await FirebaseFirestore.instance.collection(getDogName()).get();
     setState(() {
-      _plantdiseaseList =
-          List.from(data.docs.map((doc) => PlantDisplay.fromSnapshot(doc)));
+      _dogList =
+          List.from(data.docs.map((doc) => DogDisplay.fromSnapshot(doc)));
     });
   }
 }

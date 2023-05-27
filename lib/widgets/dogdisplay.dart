@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:aboutpaws/widgets/desc_card.dart';
 
 class SecondPage extends StatefulWidget {
-  final String plantname;
+  final String dogname;
   final File dimage;
-  const SecondPage({Key? key, required this.plantname, required this.dimage})
+  const SecondPage({Key? key, required this.dogname, required this.dimage})
       : super(key: key);
 
   @override
@@ -16,17 +16,17 @@ class SecondPage extends StatefulWidget {
 }
 
 class _SecondPageState extends State<SecondPage> {
-  List<Object> _plantdiseaseList = [];
+  List<Object> _dogList = [];
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    getPlantDiseaseList();
+    getDogList();
   }
 
   @override
   Widget build(BuildContext context) {
-    final String name = widget.plantname;
+    final String name = widget.dogname;
     return Scaffold(
         appBar: AppBar(
           iconTheme: const IconThemeData(color: Color.fromRGBO(1, 3, 41, 1.0)),
@@ -49,9 +49,9 @@ class _SecondPageState extends State<SecondPage> {
             child: SizedBox(
                 child: SafeArea(
               child: ListView.builder(
-                itemCount: _plantdiseaseList.length,
+                itemCount: _dogList.length,
                 itemBuilder: (context, index) {
-                  return PlantCard(_plantdiseaseList[index] as PlantDisplay);
+                  return DogCard(_dogList[index] as DogDisplay);
                 },
                 padding: const EdgeInsets.only(top: 10),
               ),
@@ -60,12 +60,12 @@ class _SecondPageState extends State<SecondPage> {
         ]));
   }
 
-  Future getPlantDiseaseList() async {
+  Future getDogList() async {
     var data =
-        await FirebaseFirestore.instance.collection(widget.plantname).get();
+        await FirebaseFirestore.instance.collection(widget.dogname).get();
     setState(() {
-      _plantdiseaseList =
-          List.from(data.docs.map((doc) => PlantDisplay.fromSnapshot(doc)));
+      _dogList =
+          List.from(data.docs.map((doc) => DogDisplay.fromSnapshot(doc)));
     });
   }
 }

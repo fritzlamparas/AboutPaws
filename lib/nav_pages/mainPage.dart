@@ -34,13 +34,13 @@ class _mainPageState extends State<mainPage> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.home,
+              Icons.home_filled,
             ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.person,
+              Icons.person_4_outlined,
             ),
             label: 'About Us',
           ),

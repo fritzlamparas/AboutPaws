@@ -1,11 +1,11 @@
-class PlantDisplay {
+class DogDisplay {
   String? description;
-  PlantDisplay();
+  DogDisplay();
 
   Map<String, dynamic> toJson() => {
         'description': description,
       };
 
-  PlantDisplay.fromSnapshot(snapshot)
+  DogDisplay.fromSnapshot(snapshot)
       : description = snapshot.data()['description'];
 }

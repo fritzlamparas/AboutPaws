@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:aboutpaws/models/desc_display.dart';
 
-class PlantCard extends StatelessWidget {
-  final PlantDisplay _plantDisplay;
+class DogCard extends StatelessWidget {
+  final DogDisplay _dogDisplay;
 
-  const PlantCard(this._plantDisplay, {super.key});
+  const DogCard(this._dogDisplay, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class PlantCard extends StatelessWidget {
                   child: Padding(
                       padding: const EdgeInsets.only(bottom: 10.0),
                       child: Text(
-                        "${_plantDisplay.description}",
+                        "${_dogDisplay.description}",
                         style: const TextStyle(
                             fontSize: 24.0,
                             fontFamily: 'RobotoLight',
