@@ -44,7 +44,7 @@ dependencies:
 
 
 flutter_native_splash:
-  color: "#D5D5D5"
+  color: "#FFFFFF"
   image: assets/images/logo.png
   web: true
 
@@ -70,12 +70,12 @@ flutter_icons:
   min_sdk_android: 21 # android min sdk min:16, default 21
   web:
     generate: true
-    image_path: "assets/images/LauncherIcon.png"
+    image_path: "assets/images/logo.png"
     background_color: "#D5D5D5"
     theme_color: "#hexcode"
   windows:
     generate: true
-    image_path: "assets/images/LauncherIcon.png"
+    image_path: "assets/images/logo.png"
     icon_size: 48 # min:48, max:256, default: 48
 
 flutter:
@@ -85,11 +85,9 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-  - assets/images/Zoe_pic.jpg
-  - assets/images/Ryan_pic.jpg
-  - assets/images/placeholder.jpg
+  - assets/images/Fritz_pic.jpg
   - assets/images/logo.png
-  - assets/images/old_logo.png
+  - assets/images/logoeee.png
   - assets/aboutpaws_model_fp16.tflite
   - assets/labels.txt
   

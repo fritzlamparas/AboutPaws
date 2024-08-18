@@ -29,35 +29,41 @@ class _SecondPageState extends State<SecondPage> {
     final String name = widget.dogname;
     return Scaffold(
         appBar: AppBar(
-          iconTheme: const IconThemeData(color: Color.fromRGBO(1, 3, 41, 1.0)),
+          iconTheme:
+              const IconThemeData(color: Color.fromRGBO(248, 248, 248, 1.0)),
           centerTitle: true,
           title: Text(
-            "Facts About $name",
+            name,
             style: const TextStyle(
-                color: Color.fromRGBO(1, 3, 41, 1.0),
-                fontWeight: FontWeight.bold),
+                color: Color.fromRGBO(248, 248, 248, 1.0),
+                fontFamily: "NunitoBold"),
           ),
-          backgroundColor: Colors.white,
-          shadowColor: const Color.fromARGB(255, 95, 94, 94),
+          backgroundColor: const Color.fromRGBO(198, 142, 77, 1.0),
+          shadowColor: const Color.fromRGBO(248, 248, 248, 1.0),
         ),
-        body: Column(children: <Widget>[
-          SizedBox(
-            height: 300,
-            child: Image.file(widget.dimage),
-          ),
-          Expanded(
-            child: SizedBox(
-                child: SafeArea(
-              child: ListView.builder(
-                itemCount: _dogList.length,
-                itemBuilder: (context, index) {
-                  return DogCard(_dogList[index] as DogDisplay);
-                },
-                padding: const EdgeInsets.only(top: 10),
+        body: Container(
+            color: const Color.fromRGBO(248, 248, 248, 1.0),
+            child: Column(children: <Widget>[
+              const SizedBox(
+                height: 20,
               ),
-            )),
-          )
-        ]));
+              SizedBox(
+                height: 250,
+                child: Image.file(widget.dimage),
+              ),
+              Expanded(
+                child: SizedBox(
+                    child: SafeArea(
+                  child: ListView.builder(
+                    itemCount: _dogList.length,
+                    itemBuilder: (context, index) {
+                      return DogCard(_dogList[index] as DogDisplay);
+                    },
+                    padding: const EdgeInsets.all(15),
+                  ),
+                )),
+              )
+            ])));
   }
 
   Future getDogList() async {

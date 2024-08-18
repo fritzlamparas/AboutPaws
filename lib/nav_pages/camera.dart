@@ -150,39 +150,29 @@ class _CameraPageState extends State<cameraPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // AppBar para sa taas na design
-
-      appBar: AppBar(
-        centerTitle: false,
-        title: const Text(
-          "AboutPaws",
-          style: TextStyle(
-              color: Color.fromRGBO(1, 3, 41, 1.0),
-              fontWeight: FontWeight.bold),
-        ),
-        backgroundColor: Colors.white,
-        shadowColor: const Color.fromARGB(255, 95, 94, 94),
-      ),
-      backgroundColor: const Color.fromRGBO(213, 213, 213, 1),
+      backgroundColor: const Color.fromRGBO(248, 248, 248, 1.0),
       body: SingleChildScrollView(
           child: Column(
         children: <Widget>[
-          const SizedBox(
-            height: 100,
-          ),
           Center(
             child: loading
-                ? SizedBox(
-                    height: 310,
-                    width: 250,
-                    child: Column(children: <Widget>[
-                      Image.asset('assets/images/placeholder.jpg')
-                    ]),
+                ? Padding(
+                    padding: const EdgeInsets.only(top: 100),
+                    child: SizedBox(
+                      height: 250,
+                      width: 250,
+                      child: Column(children: <Widget>[
+                        Image.asset('assets/images/logoeee.png')
+                      ]),
+                    ),
                   )
                 : /*const Text(
                       'Yung mga susunod dito yung ilalabas na output kapag na detect yung image') */
                 SizedBox(
                     child: Column(children: <Widget>[
+                      const SizedBox(
+                        height: 20,
+                      ),
                       SizedBox(
                         height: 300,
                         child: Image.file(_image),
@@ -202,14 +192,30 @@ class _CameraPageState extends State<cameraPage> {
                                           Color.fromRGBO(59, 59, 59, 1),
                                       fontSize: 20,
                                       fontFamily: 'NunitoMedium',
-                                      color: Color.fromRGBO(1, 3, 41, 1.0),
+                                      color: Color.fromRGBO(59, 59, 59, 1.0),
                                       height: 1.5),
                                   textAlign: TextAlign.center,
                                 ),
                                 const SizedBox(height: 20),
                                 SizedBox(
                                     child: Center(
-                                  child: TextButton(
+                                  child: MaterialButton(
+                                    height: 50.0,
+                                    minWidth: MediaQuery.of(context)
+                                                .size
+                                                .width /
+                                            2 -
+                                        32.0, // Adjust the width to be half minus padding
+                                    color:
+                                        const Color.fromRGBO(198, 142, 77, 1.0),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(30.0),
+                                      side: const BorderSide(
+                                        color:
+                                            Color.fromRGBO(198, 142, 77, 1.0),
+                                        width: 1,
+                                      ),
+                                    ),
                                     onPressed: () {
                                       Navigator.of(context).push(
                                           MaterialPageRoute(
@@ -220,10 +226,10 @@ class _CameraPageState extends State<cameraPage> {
                                     child: const Text(
                                       "Facts About Them",
                                       style: TextStyle(
-                                        fontSize: 25,
-                                        fontFamily: 'NunitoMedium',
-                                        color: Color.fromRGBO(1, 3, 41, 1.0),
-                                        decoration: TextDecoration.underline,
+                                        fontFamily: 'NunitoBold',
+                                        fontWeight: FontWeight.bold,
+                                        color:
+                                            Color.fromRGBO(248, 248, 248, 1.0),
                                       ),
                                     ),
                                   ),
@@ -234,17 +240,10 @@ class _CameraPageState extends State<cameraPage> {
                     ]),
                   ),
           ),
-          const SizedBox(
-            height: 45,
-          ),
-          const SizedBox(
-            height: 15,
-          ),
           Container(
             width: MediaQuery.of(context).size.width,
             height: 100,
-            decoration:
-                const BoxDecoration(color: Color.fromRGBO(1, 3, 41, 1.0)),
+            decoration: const BoxDecoration(),
             child: Column(children: <Widget>[
               const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -264,12 +263,11 @@ class _CameraPageState extends State<cameraPage> {
                           width: 75,
                           alignment: Alignment.center,
                           padding: const EdgeInsets.symmetric(),
-                          decoration: const BoxDecoration(
-                              color: Color.fromRGBO(1, 3, 41, 1.0),
-                              shape: BoxShape.circle),
+                          decoration:
+                              const BoxDecoration(shape: BoxShape.circle),
                           child: const Icon(
                             Icons.add,
-                            color: Color(0xffeeeeee),
+                            color: Color.fromRGBO(59, 59, 59, 1.0),
                             size: 40,
                           ),
                         ),
@@ -281,7 +279,7 @@ class _CameraPageState extends State<cameraPage> {
                           style: TextStyle(
                               fontSize: 16,
                               fontFamily: 'NunitoMedium',
-                              color: Color(0xffeeeeee)),
+                              color: Color.fromRGBO(59, 59, 59, 1.0)),
                           textAlign: TextAlign.center,
                         ),
                       ],
@@ -301,12 +299,11 @@ class _CameraPageState extends State<cameraPage> {
                           width: 75,
                           alignment: Alignment.center,
                           padding: const EdgeInsets.symmetric(),
-                          decoration: const BoxDecoration(
-                              color: Color.fromRGBO(1, 3, 41, 1.0),
-                              shape: BoxShape.circle),
+                          decoration:
+                              const BoxDecoration(shape: BoxShape.circle),
                           child: const Icon(
                             Icons.camera_alt_outlined,
-                            color: Color(0xffeeeeee),
+                            color: Color.fromRGBO(59, 59, 59, 1.0),
                             size: 40,
                           ),
                         ),
@@ -318,7 +315,7 @@ class _CameraPageState extends State<cameraPage> {
                           style: TextStyle(
                               fontSize: 16,
                               fontFamily: 'NunitoMedium',
-                              color: Color(0xffeeeeee)),
+                              color: Color.fromRGBO(59, 59, 59, 1.0)),
                           textAlign: TextAlign.center,
                         ),
                       ],

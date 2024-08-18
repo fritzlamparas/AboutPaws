@@ -10,7 +10,7 @@ class DogCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Card(
-        color: const Color.fromRGBO(1, 3, 41, 1.0),
+        color: const Color(0xffeeeeee),
         child: Padding(
           padding: const EdgeInsets.all(12.0),
           child: Column(children: [
@@ -18,13 +18,13 @@ class DogCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: Padding(
-                      padding: const EdgeInsets.only(bottom: 10.0),
+                      padding: const EdgeInsets.all(10),
                       child: Text(
                         "${_dogDisplay.description}",
                         style: const TextStyle(
                             fontSize: 24.0,
-                            fontFamily: 'RobotoLight',
-                            color: Color(0xffeeeeee)),
+                            fontFamily: 'NunitoLight',
+                            color: Color.fromRGBO(59, 59, 59, 1.0)),
                         textAlign: TextAlign.center,
                       )),
                 )

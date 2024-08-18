@@ -6,18 +6,7 @@ class AboutUsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: false,
-        title: const Text(
-          "AboutPaws",
-          style: TextStyle(
-              color: Color.fromRGBO(1, 3, 41, 1.0),
-              fontWeight: FontWeight.bold),
-        ),
-        backgroundColor: Colors.white,
-        shadowColor: const Color.fromARGB(255, 95, 94, 94),
-      ),
-      backgroundColor: const Color.fromRGBO(213, 213, 213, 1),
+      backgroundColor: const Color.fromRGBO(248, 248, 248, 1),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
@@ -31,7 +20,7 @@ class AboutUsPage extends StatelessWidget {
                 style: TextStyle(
                     fontSize: 30,
                     fontFamily: 'NunitoBold',
-                    color: Color.fromRGBO(1, 3, 41, 1.0)),
+                    color: Color.fromRGBO(198, 142, 77, 1.0)),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -55,11 +44,11 @@ class AboutUsPage extends StatelessWidget {
             ),
             Container(
               padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
-              child: const Text('App Developers',
+              child: const Text('App Developer',
                   style: TextStyle(
                       fontSize: 30,
                       fontFamily: 'NunitoBold',
-                      color: Color.fromRGBO(1, 3, 41, 1.0)),
+                      color: Color.fromRGBO(198, 142, 77, 1.0)),
                   textAlign: TextAlign.center),
             ),
             Container(
@@ -70,18 +59,18 @@ class AboutUsPage extends StatelessWidget {
                   Column(
                     children: <Widget>[
                       const CircleAvatar(
-                        backgroundColor: Color.fromRGBO(1, 3, 41, 1.0),
+                        backgroundColor: Color.fromRGBO(59, 59, 59, 1.0),
                         radius: 60,
                         child: CircleAvatar(
                           radius: 55,
                           backgroundImage:
-                              AssetImage('assets/images/Ryan_pic.jpg'),
+                              AssetImage('assets/images/Fritz_pic.jpg'),
                         ),
                       ),
                       Container(
                         padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
                         child: const Text(
-                          'Ryan U. Avena',
+                          'Fritz D. Lamparas',
                           style: TextStyle(
                               fontSize: 16,
                               fontFamily: 'NunitoMedium',
@@ -93,29 +82,6 @@ class AboutUsPage extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
-            Column(
-              children: <Widget>[
-                const CircleAvatar(
-                  backgroundColor: Color.fromRGBO(1, 3, 41, 1.0),
-                  radius: 60,
-                  child: CircleAvatar(
-                    radius: 55,
-                    backgroundImage: AssetImage('assets/images/Zoe_pic.jpg'),
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
-                  child: const Text(
-                    'Zoe Dylan Soriano',
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: 'NunitoMedium',
-                        color: Color.fromRGBO(59, 59, 59, 1)),
-                    textAlign: TextAlign.justify,
-                  ),
-                ),
-              ],
             ),
           ],
         ),
