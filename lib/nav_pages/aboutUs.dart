@@ -30,7 +30,7 @@ class AboutUsPage extends StatelessWidget {
             Container(
               padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
               child: const Text(
-                'AboutPaws is a mobile application that utilizes machine learning through image processing to classify the dog breed of the uploaded image.',
+                'AboutPaws is a mobile app that utilizes machine learning through image processing to classify the dog breed of the uploaded image.',
                 style: TextStyle(
                     fontSize: 18,
                     fontFamily: 'NunitoMedium',
